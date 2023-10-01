@@ -75,7 +75,7 @@ variable "sg_name" {
 #
 variable "availability_zone" {
   type    = string
-  default = "ap-southeast-1a"
+  default = "us-east-1a"
 }
 
 variable "ebs_size" {

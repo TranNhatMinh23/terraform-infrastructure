@@ -1,6 +1,6 @@
 
 provider "aws" {
-  region     = "ap-southeast-1"
+  region     = "us-east-1"
   
 }
 
@@ -17,16 +17,12 @@ terraform {
   backend "s3" {
     bucket         = "backend-eos-terraform-2"   
     key            = "terraform.tfstate"            
-    region         = "ap-southeast-1"                   
+    region         = "us-east-1"                   
     encrypt        = true                      
-    
+    table          = "dynamodb"                  
+    hash_key       = "ID" 
   }
 
-  backend "dynamodb" {
-    table          = "dynamodb"   
-    region         = "ap-southeast-1"                
-    hash_key       = "ID"                      
-  }
 }
   
 
