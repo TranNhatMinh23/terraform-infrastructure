@@ -22,7 +22,7 @@ pipeline {
                 // Chạy Checkov trên mã Terraform
 		
                 script {
-            		def checkovResult = sh(script: 'sudo checkov -d compliant', returnStatus: true)
+            		def checkovResult = sh(script: 'sudo checkov -d', returnStatus: true)
             		if (checkovResult == 0) {
              		   currentBuild.result = 'SUCCESS'
             		} else {
