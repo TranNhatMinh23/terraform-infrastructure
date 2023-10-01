@@ -19,8 +19,13 @@ terraform {
     key            = "terraform.tfstate"            
     region         = "ap-southeast-1"                   
     encrypt        = true                      
-    table          = "dynamodb"                 
-    hash_key       = "ID"  
+    
+  }
+
+  backend "dynamodb" {
+    table          = "dynamodb"   
+    region         = "ap-southeast-1"                
+    hash_key       = "ID"                      
   }
 }
   
