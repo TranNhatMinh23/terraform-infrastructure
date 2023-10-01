@@ -11,7 +11,7 @@ terraform {
     aws = {
       source  = "hashicorp/aws"
       version = "~> 4.0"
-
+    }
     backend "s3" {
     bucket         = "backend-eos-terraform-3"   
     key            = "terraform.tfstate"            
@@ -19,7 +19,6 @@ terraform {
     encrypt        = true     
     dynamodb_table = "tabledb"                 
   }
-    }
   }
   
   
