@@ -15,11 +15,11 @@ terraform {
   }
   
   backend "s3" {
-    bucket         = "backend-eos-terraform-2"   
+    bucket         = "backend-eos-terraform-1"   
     key            = "terraform.tfstate"            
     region         = "us-east-1"                   
     encrypt        = true                      
-    table          = "dynamodb"                  
+    table          = "tabledb"                  
     hash_key       = "ID" 
   }
 
