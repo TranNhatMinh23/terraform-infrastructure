@@ -55,7 +55,7 @@ pipeline {
             steps {
                 // Yêu cầu xác nhận từ người dùng
                 
-                sh 'terraform apply --var-file lab2.tfvars --auto-approve'
+                sh 'terraform apply --var-file lab2.tfvars -lock=false --auto-approve'
             }
         }
     }
