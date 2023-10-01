@@ -1,0 +1,64 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Run terraform') {
+            steps {
+                // Terraform init
+		
+                sh 'terraform init -upgrade'
+            }
+        }
+
+        stage('Run Checkov') {
+            steps {
+                // Chạy Checkov trên mã Terraform
+		
+                script {
+            		def checkovResult = sh(script: 'sudo checkov -d compliant', returnStatus: true)
+            		if (checkovResult == 0) {
+             		   currentBuild.result = 'SUCCESS'
+            		} else {
+            		    currentBuild.result = 'FAILURE'
+            		}
+        }
+            }
+        }
+	stage('Confirm') {
+	    when {
+        expression {
+            return currentBuild.resultIsBetterOrEqualTo('FAILURE')
+        }
+    }
+            steps {
+                // Yêu cầu xác nhận từ người dùng
+                input message: 'Kiểm tra mã Terraform đã hoàn thành và không có lỗi. Bạn có muốn tiếp tục?', ok: 'Tiếp tục'
+                
+                // Apply Terraform
+		
+                
+            }
+        }
+        stage('Apply') {
+	    when {
+        expression {
+            return currentBuild.resultIsBetterOrEqualTo('FAILURE')
+        }
+    }
+            steps {
+                // Yêu cầu xác nhận từ người dùng
+                
+                sh 'terraform apply --var-file lab2.tfvars --auto-approve'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Kiểm tra hoàn thành và không có lỗi nào được tìm thấy.'
+        }
+        failure {
+            echo 'Có lỗi trong mã Terraform của bạn. Vui lòng kiểm tra và sửa lỗi trước khi tiếp tục.'
+        }
+    }
+}
