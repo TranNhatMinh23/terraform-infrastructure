@@ -19,8 +19,8 @@ terraform {
     key            = "terraform.tfstate"            
     region         = "us-east-1"                   
     encrypt        = true                      
-    table          = "tabledb"                  
-    hash_key       = "ID" 
+    dynamodb_table          = "tabledb"                  
+     
   }
 
 }
