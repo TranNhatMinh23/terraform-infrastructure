@@ -72,9 +72,9 @@ resources = {
   
   vm = {
     ami_instance = {
-      ami_name = "ec2_amirun"
+      ami_name = "ec2_ami"
       ami_id             = "ami-053b0d53c279acc90"
-      instance_name      = "instance-finaltest"
+      instance_name      = "instance-final"
       type               = "t3.large"
       key_pair_name      = "MINHTN36"
       user_data_path     = "user-data.sh"
