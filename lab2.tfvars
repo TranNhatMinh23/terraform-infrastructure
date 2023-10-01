@@ -72,7 +72,7 @@ resources = {
   
   vm = {
     ami_instance = {
-      ami_name = "ec2_ami"
+      ami_name = "ec2_ami2"
       ami_id             = "ami-053b0d53c279acc90"
       instance_name      = "instance-final"
       type               = "t3.large"
