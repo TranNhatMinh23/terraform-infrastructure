@@ -76,7 +76,7 @@ resources = {
       ami_id             = "ami-0df7a207adb9748c7"
       instance_name      = "instance-Jenkins"
       type               = "t3.large"
-      key_pair_name      = "MINHTN36"
+      key_pair_name      = "devops"
       user_data_path     = "user-data.sh"
       vpc_name           = "vpc1"
       subnet_name        = "public_subnet_1"
@@ -86,7 +86,7 @@ resources = {
   }
   eks = {
     eks_project = {
-      eks_name = "devops"
+      eks_name = "devops1"
       versions = "1.25"
       node_group_name = "prod"
       capacity_type = "ON_DEMAND"
