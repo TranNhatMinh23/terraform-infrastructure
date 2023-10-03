@@ -9,7 +9,7 @@ pipeline {
         stage('Run terraform') {
             steps {
                 // Terraform init
-		
+		sh 'terraform init -reconfigure'
                 sh 'terraform destroy --var-file lab2.tfvars -lock=false --auto-approve'
             }
         }
