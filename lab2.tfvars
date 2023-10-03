@@ -12,17 +12,17 @@ resources = {
         public_subnet_1 = {
           type              = "public"
           cidr_block        = "10.16.0.0/20"
-          availability_zone = "us-east-1a"
+          availability_zone = "ap-southeast-1a"
         }
         public_subnet_2 = {
           type              = "public"
           cidr_block        = "10.16.16.0/20"
-          availability_zone = "us-east-1b"
+          availability_zone = "ap-southeast-1b"
         }
         private_subnet_1 = {
           type              = "private"
           cidr_block        = "10.16.32.0/20"
-          availability_zone = "us-east-1a"
+          availability_zone = "ap-southeast-1a"
         }
         
       }
@@ -72,9 +72,9 @@ resources = {
   
   vm = {
     ami_instance = {
-      ami_name = "ec2_amirun"
-      ami_id             = "ami-053b0d53c279acc90"
-      instance_name      = "instance-finaltest"
+      ami_name = "ec2_amirunt"
+      ami_id             = "ami-0df7a207adb9748c7"
+      instance_name      = "instance-Jenkins"
       type               = "t3.large"
       key_pair_name      = "MINHTN36"
       user_data_path     = "user-data.sh"
@@ -96,9 +96,9 @@ resources = {
       desired_size = 2
       max_size     = 3
       min_size     = 2
-      eksmaster_role    = "eksmaster_iam_role3"
-      eksworker_role    = "eksworker_iam_role3"
-      autoscaler_role   = "autoscaler_role"
+      eksmaster_role    = "eksmaster_iam_role4"
+      eksworker_role    = "eksworker_iam_role4"
+      autoscaler_role   = "autoscaler_role1"
       vpc_name           = "vpc1"
       subnet_name        = ["public_subnet_1","public_subnet_2"]
       sg_name            = "sg1"
@@ -107,7 +107,7 @@ resources = {
   
   s3 = {
     react_web = {
-      bucket_name = "s3-logsfsoft5"
+      bucket_name = "s3-logsfsoft8"
       public_access_blocks = {
         blocks = {
           block_public_acls       = false
@@ -117,7 +117,7 @@ resources = {
         }
       }
       policy = {
-        Id = "s3-logsfsoft"
+        Id = "s3-logsfsoft8"
         Statement = [
           {
             Action = ["s3:*"]
@@ -127,8 +127,8 @@ resources = {
             }
 
             Resource = [
-              "arn:aws:s3:::s3-logsfsoft",
-              "arn:aws:s3:::s3-logsfsoft/*"
+              "arn:aws:s3:::s3-logsfsoft8",
+              "arn:aws:s3:::s3-logsfsoft8/*"
             ]
             Sid = "Enable IAM User Permissions"
           },

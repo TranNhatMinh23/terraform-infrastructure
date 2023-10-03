@@ -12,17 +12,17 @@ resources = {
         public_subnet_1 = {
           type              = "public"
           cidr_block        = "10.16.0.0/20"
-          availability_zone = "us-east-1a"
+          availability_zone = "ap-southeast-1a"
         }
         public_subnet_2 = {
           type              = "public"
           cidr_block        = "10.16.16.0/20"
-          availability_zone = "us-east-1b"
+          availability_zone = "ap-southeast-1b"
         }
         private_subnet_1 = {
           type              = "private"
           cidr_block        = "10.16.32.0/20"
-          availability_zone = "us-east-1a"
+          availability_zone = "ap-southeast-1a"
         }
         
       }
